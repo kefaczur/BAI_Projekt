@@ -13,8 +13,8 @@ class CreateUserForm(UserCreationForm):
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label='Nazwa użytkownika')
-    password = forms.CharField(label='Hasło', widget=forms.PasswordInput)
+    username = forms.CharField(label='Nazwa użytkownika', validators=[])
+    password = forms.CharField(label='Hasło', widget=forms.PasswordInput, validators=[])
     # Formularz logowania użytkownika
     # Zawiera pola 'username' (nazwa użytkownika) i 'password' (hasło)
 class OTPVerificationForm(forms.Form):

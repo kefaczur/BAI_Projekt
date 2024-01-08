@@ -23,7 +23,7 @@
       <form method="POST">
 
         <!-- Token CSRF dla zabezpieczeń -->
-        {% csrf_token %}
+        <!-- {% csrf_token %} chyba nie xD --> 
 
         <!-- Wyświetlenie formularza. Formularz jest przekazywany przez widok Django. -->
         {{ form.as_p }}
