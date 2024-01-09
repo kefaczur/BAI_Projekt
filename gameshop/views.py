@@ -17,11 +17,21 @@ from .serializers import CategorySerializer, DeveloperSerializer, GameSerializer
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
+from django.db.models import Q
+from django.template import Context
 
 User = get_user_model()
 
 def generate_otp_code():
     return get_random_string(length=6)
+
+@require_GET
+def search(request):
+    query = request.GET.get("q")
+    products = Game.objects.filter(title__contains=query)
+    context = {'search': query}
+    print(context)
+    return render(request, "gameshop/search.html", {'products': products}, context)
 
 # Widok strony głównej
 @require_GET

@@ -47,6 +47,9 @@
       <!-- Otwarcie listy linków nawigacyjnych -->
       <ul>
         <!-- Linki do różnych stron sklepu -->
+        <form action="{% url 'gameshop:search' %}" method="get">
+          <input name="q" type="text" placeholder="Wyszukaj...">
+        </form>
         <li><a href="{% url 'gameshop:index' %}">Strona główna</a></li>
         <li><a href="/products">Produkty</a></li>
         <li><a href="{% url 'gameshop:regulamin' %}">Regulamin</a></li>

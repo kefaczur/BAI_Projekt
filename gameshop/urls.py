@@ -17,6 +17,7 @@ app_name = 'gameshop'
 urlpatterns = [
     path('', views.index, name='index'),# Strona główna
     path('products/', views.products, name='products'),# Lista produktów
+    path('search/', views.search, name='search'),# Lista produktów
     path('regulamin/', views.regulamin, name='regulamin'),# Regulamin
     path('pomoc/', views.pomoc, name='pomoc'),# Strona pomocy
     path('login/', views.userlogin, name='login'),# Logowanie użytkownika
