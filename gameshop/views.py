@@ -29,9 +29,7 @@ def generate_otp_code():
 def search(request):
     query = request.GET.get("q")
     products = Game.objects.filter(title__contains=query)
-    context = {'search': query}
-    print(context)
-    return render(request, "gameshop/search.html", {'products': products}, context)
+    return render(request, "gameshop/search.html", {'products': products, 'search': query})
 
 # Widok strony głównej
 @require_GET
