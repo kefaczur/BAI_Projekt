@@ -19,16 +19,29 @@ from django.contrib.auth.hashers import make_password
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
 from django.db.models import Q
 from django.template import Context
+from django.db import connection
 
 User = get_user_model()
 
 def generate_otp_code():
     return get_random_string(length=6)
 
+""" def custom_search_sql(query):
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM gameshop_game WHERE title LIKE '%%%s%%'" % query
+        cursor.execute(sql)
+        data = cursor.fetchall()
+    
+    return data """
+
+
 @require_GET
 def search(request):
     query = request.GET.get("q")
-    products = Game.objects.filter(title__contains=query)
+    sql = "SELECT * FROM gameshop_game WHERE title LIKE '%%%s%%'" % query
+    #print(sql)
+    products = Game.objects.raw(sql)
+    #products = custom_search_sql(query)
     return render(request, "gameshop/search.html", {'products': products, 'search': query})
 
 # Widok strony głównej
