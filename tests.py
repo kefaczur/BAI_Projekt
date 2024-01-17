@@ -4,9 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-
 class Hosttest(LiveServerTestCase):
-
     def testindex(self):
         """
         Testuje główną stronę (index) sklepu.
@@ -19,9 +17,7 @@ class Hosttest(LiveServerTestCase):
         time.sleep(5)
         assert "Sklep" in driver.title
 
-
 class LoginFormTest(LiveServerTestCase):
-
     def testform(self):
         """
         Testuje formularz logowania.
@@ -41,11 +37,9 @@ class LoginFormTest(LiveServerTestCase):
         user_password.send_keys('admin')
         time.sleep(3)
         submit.send_keys(Keys.RETURN)
-
         #assert 'admin' in driver.page_source
 
 class RegisterFormTest(LiveServerTestCase):
-
     def testregisterform(self):
         """
         Testuje formularz rejestracji.
@@ -71,7 +65,6 @@ class RegisterFormTest(LiveServerTestCase):
         submit.send_keys(Keys.RETURN)
 
 class Regulamintest(LiveServerTestCase):
-
     def testregulamin(self):
         """
         Testuje stronę regulaminu sklepu.
@@ -85,7 +78,6 @@ class Regulamintest(LiveServerTestCase):
         assert "Regulamin sklepu" in driver.title
 
 class Productstest(LiveServerTestCase):
-
     def testproducts(self):
         """
         Testuje stronę z produktami.
@@ -99,9 +91,7 @@ class Productstest(LiveServerTestCase):
         assert "Produkty" in driver.title
 
 class Pomoctest(LiveServerTestCase):
-
     def testpomoc(self):
-
         driver = webdriver.Chrome()
         """
         Testuje stronę pomocy.
@@ -114,7 +104,6 @@ class Pomoctest(LiveServerTestCase):
         assert "Pomoc" in driver.title
 
 class Gametest(LiveServerTestCase):
-
     def testgame(self):
         """
         Testuje stronę gry.
