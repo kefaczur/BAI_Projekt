@@ -44,7 +44,6 @@ np. setx PATH "%PATH%;C:\Users\Kowalski\Desktop\PD_Projekt\chromedriver.exe"
 a następnie za pomocą komendy w terminalu: "python manage.py test" - rozpoczyna się proces testowania (Należy mieć odpalony projekt przed wystartowaniem testów)
 
 # Co zostało zepsute?
-
 - API, mimo posiadania tokena JWT, nie wymaga żadnej weryfikacji
 - Brak tokenów CSRF
 - Wyłączony character escaping (podatności na XSS/SQL inj.)
